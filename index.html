@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dynamic Quiz Project</title>
+		<link type='text/css' rel='stylesheet' href='stylesheet.css'/>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans"/>
+		<style type="text/css">
+		body {
+    font-family: Open Sans;
+}
+
+h1 {
+    text-align: center;
+}
+
+#title {
+    text-decoration: underline;
+}
+
+.visible {
+	visibility: hidden !important;
+}
+
+#quiz {
+    text-indent: 10px;
+    display:none;
+}
+
+div#question {
+	padding-left: 25% !important;
+}
+
+.button {
+    border:4px solid;
+    border-radius:5px;
+    width: 40px;
+    padding-left:5px;
+    padding-right: 5px;
+    position: relative;
+    float:right;
+    background-color: #DCDCDC;
+    color: black;
+    margin: 0 2px 0 2px;
+}
+
+.button.active {
+    background-color: #F8F8FF;
+    color: #525252;
+}
+
+button {
+    position: relative;
+    float:right;
+}
+
+.button a {
+    text-decoration: none;
+    color: black;
+}
+
+#container {
+        max-width: 700px;
+    margin: auto;
+    padding: 0 25px 40px 10px;
+    background-image: url(img/17/personaje.png);
+    background-size: 100% 100%;
+    color: #000;
+    font-weight: bold;
+    min-height: 300px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible;
+}
+
+#prev {
+    display:none;
+}
+
+#start {
+    display:none;
+    width: 90px;
+}</style>
+	</head>
+	<body>
+		<div id='container'>
+			<div id='title'>
+				<h4 class="font-bold color-orange">1. PRODUCTO</h1>
+			</div>
+   			<br/>
+  			<div id='quiz'></div>
+    		<div class='button' id='next'><a href='#'>Next</a></div>
+    		<div class='button' id='prev'><a href='#'>Prev</a></div>
+    		<div class='button' id='start'> <a href='#'>Start Over</a></div>
+    		<!-- <button class='' id='next'>Next</a></button>
+    		<button class='' id='prev'>Prev</a></button>
+    		<button class='' id='start'> Start Over</a></button> -->
+    		<section class="hidden">Hola</section>
+    	</div>
+    	
+
+
+
+
+		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+		<script type="text/javascript" src='questions.json'></script>
+		<script type='text/javascript' src='jsquiz.js'></script>
+		<script type="text/javascript">
+			(function() {
+  var questions = [{
+    question: "1. Son beneficios del servicio:",
+    choices: ["Tener una mejor experiencia de navegación para los clientes<br>que acceden a tu página web", "Tener líneas Prepago", "Adminisitrar la comunicación interna"],
+    correctAnswer: 1
+  }, {
+    question: "2. Son clientes los Usuarios que revendan el servicio<br>de internet como las cabinas, proveedores, locales de internet",
+    choices: ["Verdadero","Falso"],
+    correctAnswer: 1
+  }, {
+    question: "3. No es una característica del servicio:",
+    choices: ["Tiene una cantidad de Ip de 8 IPS fijas","Su tasa asegurada de servicio es del 100%","El Router es Cisco de 800"],
+    correctAnswer: 1
+  }, {
+    question: "4. Si José desea obtener el servicio pero cuenta con varias cambias de internet ¿Será un cliente apto para obtener el servicio?",
+    choices: ["Verdadero","Falso"],
+    correctAnswer: 1
+  }];
+  
+  var questionCounter = 0; //Tracks question number
+  var selections = []; //Array containing user choices
+  var quiz = $('#quiz'); //Quiz div object
+  
+  // Display initial question
+  displayNext();
+  
+  // Click handler for the 'next' button
+  $('#next').on('click', function (e) {
+    e.preventDefault();
+    
+    // Suspend click listener during fade animation
+    if(quiz.is(':animated')) {        
+      return false;
+    }
+    choose();
+    
+    // If no user selection, progress is stopped
+    if (isNaN(selections[questionCounter])) {
+      alert('Please make a selection!');
+    } else {
+      questionCounter++;
+      displayNext();
+    }
+  });
+  
+  // Click handler for the 'prev' button
+  $('#prev').on('click', function (e) {
+    e.preventDefault();
+    
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    choose();
+    questionCounter--;
+    displayNext();
+  });
+  
+  // Click handler for the 'Start Over' button
+  $('#start').on('click', function (e) {
+    e.preventDefault();
+    
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    questionCounter = 0;
+    selections = [];
+    displayNext();
+    $('#start').hide();
+  });
+  
+  // Animates buttons on hover
+  $('.button').on('mouseenter', function () {
+    $(this).addClass('active');
+  });
+  $('.button').on('mouseleave', function () {
+    $(this).removeClass('active');
+  });
+  
+  // Creates and returns the div that contains the questions and 
+  // the answer selections
+  function createQuestionElement(index) {
+    var qElement = $('<div>', {
+      id: 'question'
+    });
+    
+    
+    var question = $('<p>').append(questions[index].question);
+    qElement.append(question);
+    
+    var radioButtons = createRadios(index);
+    qElement.append(radioButtons);
+    
+    return qElement;
+  }
+  
+  // Creates a list of the answer choices as radio inputs
+  function createRadios(index) {
+    var radioList = $('<ul>');
+    var item;
+    var input = '';
+    for (var i = 0; i < questions[index].choices.length; i++) {
+      item = $('<li>');
+      input = '<input type="radio" name="answer" value=' + i + ' />';
+      input += questions[index].choices[i];
+      item.append(input);
+      radioList.append(item);
+    }
+    return radioList;
+  }
+  
+  // Reads the user selection and pushes the value to an array
+  function choose() {
+    selections[questionCounter] = +$('input[name="answer"]:checked').val();
+  }
+  
+  // Displays next requested element
+  function displayNext() {
+    quiz.fadeOut(function() {
+      $('#question').remove();
+      
+      if(questionCounter < questions.length){
+        var nextQuestion = createQuestionElement(questionCounter);
+        quiz.append(nextQuestion).fadeIn();
+        if (!(isNaN(selections[questionCounter]))) {
+          $('input[value='+selections[questionCounter]+']').prop('checked', true);
+        }
+        
+        // Controls display of 'prev' button
+        if(questionCounter === 1){
+          $('#prev').show();
+        } else if(questionCounter === 0){
+          
+          $('#prev').hide();
+          $('#next').show();
+        }
+      }else {
+        var scoreElem = displayScore();
+        quiz.append(scoreElem).fadeIn();
+        $('#next').hide();
+        $('#prev').hide();
+        $('#start').show();
+      }
+    });
+  }
+  
+  // Computes score and returns a paragraph element to be displayed
+  function displayScore() {
+    var score = $('<p>',{id: 'question'});
+    
+    var numCorrect = 0;
+    for (var i = 0; i < selections.length; i++) {
+      if (selections[i] === questions[i].correctAnswer) {
+        numCorrect++;
+      }
+    }
+    
+    score.append('You got ' + numCorrect + ' questions out of ' +
+                 questions.length + ' right!!!');
+    return score;
+  }
+})();
+		</script>
+	</body>
+</html>

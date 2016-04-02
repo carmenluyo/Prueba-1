@@ -1,0 +1,247 @@
+//Colocar aquí clases utilitarias para todo el sitio. Por ejemplo: márgenes, alineación de texto y color de texto
+
+
+.color-orange {
+	color: #EF5F2F !important;
+}
+
+.bg-orange {
+	background-color: #EF5F2F !important;
+}
+
+.color-fuchsia {
+	color: #F53AA8 !important;
+}
+
+.bg-fuchsia {
+	background-color: #F53AA8 !important;
+}
+
+.bg-green {
+  background-color: #00CD7D !important;
+}
+
+.color-green {
+  color: #00CD7D !important;
+}
+
+.bg-purple {
+  background-color: #A442A3 !important
+}
+
+.color-purple {
+  color: #A442A3 !important;
+}
+
+.color-bluedark {
+	color: #0091A4 !important;
+}
+
+.bg-bluedark {
+	background-color: #0091A4 !important;
+}
+
+.bg-bluedark-light {
+	background-color: #00A7B9 !important;
+}
+
+.bg-bluedark-strong {
+    background-color: #0091A4 !important;
+}
+
+/*Padding*/
+.plr-40 {
+	padding-left:40%;
+	padding-right:40%;
+}
+
+.pt-4 {
+	padding-top: 4%;
+}
+
+.ptb-4 {
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.plr-18 {
+    padding-left: 18%;
+    padding-right: 18%;
+}
+
+/*Input orange*/
+.checkbox-custom {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkbox-custom + .checkbox-custom-label:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #EF5F2F;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.checkbox-custom:checked + .checkbox-custom-label:before {
+    background: #EF5F2F;
+    box-shadow: inset 0px 0px 0px 4px #fff;
+}
+
+/*Input fuchsia*/
+.checkbox-custom-fuchsia {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom-fuchsia {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkbox-custom-fuchsia + .checkbox-custom-label-fuchsia:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #F53AA8;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.checkbox-custom-fuchsia:checked + .checkbox-custom-label-fuchsia:before {
+    background: #F53AA8;
+    box-shadow: inset 0px 0px 0px 4px #fff;
+}
+
+/*Input green*/
+.checkbox-custom-green {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom-green {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkbox-custom-green + .checkbox-custom-label-green:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #00CD7D;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.checkbox-custom-green:checked + .checkbox-custom-label-green:before {
+    background: #00CD7D;
+     box-shadow: inset 0px 0px 0px 4px #fff;
+ }
+
+ /*Input purple*/
+.checkbox-custom-purple {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom-purple {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkbox-custom-purple + .checkbox-custom-label-purple:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #A442A3;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.checkbox-custom-purple:checked + .checkbox-custom-label-purple:before {
+    background: #A442A3;
+     box-shadow: inset 0px 0px 0px 4px #fff;
+ }
+
+ /*Input bluedark*/
+ .checkbox-custom-bluedark {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom-bluedark {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkbox-custom-bluedark + .checkbox-custom-label-bluedark:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #0091A4;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.checkbox-custom-bluedark:checked + .checkbox-custom-label-bluedark:before {
+    background: #0091A4;
+     box-shadow: inset 0px 0px 0px 4px #fff;
+ }
+
+ /*Flecha*/
+
+ .rectangulo {
+    width: 30px;
+    height: 20px;
+    background: #19B1EA;
+    position: relative;
+    margin: 0 auto;
+ }
+
+ .triangulo {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 20px solid #19B1EA;
+    /* border-bottom: 10px solid transparent; */
+    position: absolute;
+    top: 60%;
+    left: -30%;
+}

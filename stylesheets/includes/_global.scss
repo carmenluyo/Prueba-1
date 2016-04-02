@@ -1,0 +1,303 @@
+// Son los estilos personalizados que se repiten en todas las vistas, por ejemplo, el header o el footer del sitio.
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family:TelefonicaText-Regular;
+  color:#fff;
+}
+
+img {
+  max-width: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin:0;
+  width: 100%;
+}
+
+ul {
+  margin-bottom: 0% !important;
+}
+
+p {
+  font-family: TelefonicaHeadline-Light;
+}
+
+.content-8 {
+  width: 100%;
+  height: 80%;
+  position: relative;
+}
+
+/* Slide css */
+.slide {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 20%;
+  background-color: #fff;
+  color:#005366;
+  h4 {
+    padding-top: 2%;
+    font-size: 20px;
+    color:#005366;
+  }
+}
+
+#zona-slides {
+  width: 100%;
+  height: 100%;
+}
+
+.footer .pagination{
+    font-size: 17px;
+    margin: 5px 0;   
+}
+
+.footer  .pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 5px;
+    margin-left: -1px;    
+    color: #005366;
+    text-decoration: none;
+    background:transparent;
+    border: none;
+}
+
+.footer .pagination>li>span.line {
+    border-right: solid 1px #D4D4D4;
+    height: 35px;
+    margin-right: 5px;
+}
+
+.footer .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    background-color: #fff;  
+}
+
+.clearfix:after {
+  content: '';
+  clear: both;
+  display: block;
+  height: 0;
+  width: 0;
+}
+
+.footer-void {
+  width: 100%;
+  height: 20%;
+}
+
+/*Section and background*/
+.padding-section {
+  width: 100%;
+  padding-top: 8%;
+  padding-left: 17%;
+  h4.text-left, h5.text-left, p.text-left {
+    padding-bottom: 1%;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 19px;
+    padding-left: 2%;
+  }
+}
+
+.bg{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  overflow: hidden;
+}
+
+/*Background*/
+.bluegif-4 {
+  background-image: url(../img/01/fondo_1.gif);
+}
+
+.bluegif-3 {
+  background-image: url(../img/03/fondo_3.gif);
+}
+
+.blue-4 {
+  background-image: url(../img/background/fondo_1.png);
+}
+
+.blue-6 {
+  background-image: url(../img/background/fondo_2.png);
+}
+
+.blue-3 {
+  background-image: url(../img/background/fondo_4.png);
+}
+
+.orangegif-3 {
+  background-image: url(../img/06/fondo_6.gif);
+}
+
+.orange-3 {
+  background-image: url(../img/background/fondo_6.png);
+}
+
+.orange-2 {
+  background-image: url(../img/background/fondo_7.png);
+}
+
+.orange-6 {
+  background-image: url(../img/background/fondo_11.png);
+}
+
+/*Venta*/
+
+.fuchsiagif-3 {
+  background-image: url(../img/19/fondo.gif);
+}
+
+.fuchsia-3 {
+  background-image: url(../img/19/fondo.png);
+}
+
+.fuchsia-2 {
+  background-image: url(../img/21/fondo.png);
+}
+
+.greengif-3 {
+  background-image: url(../img/38/fondo.gif);
+}
+
+.green-3 {
+  background-image: url(../img/38/fondo.png);
+}
+
+.green-2 {
+  background-image: url(../img/40/fondo.png);
+}
+
+.green-7 {
+  background-image: url(../img/42/fondo.png);
+}
+
+.purplegif-3 {
+  background-image: url(../img/48/fondo.gif);
+}
+
+.purple-3 {
+  background-image: url(../img/48/fondo.png);
+}
+
+.purple-2 {
+  background-image: url(../img/50/fondo.png);
+}
+
+.bluedarkgif-3 {
+  background-image: url(../img/57/fondo.gif);
+} 
+
+.bluedark-3 {
+  background-image: url(../img/57/fondo.png);
+} 
+
+.bluedark-2 {
+  background-image: url(../img/59/fondo.png);
+}
+
+.end {
+  background-image: url(../img/80/fondo.png);
+}
+
+section {
+  width: 100%;
+  height:100%;
+  position: relative;
+  text-align:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*End sectio and background*/
+
+.no-center {
+  justify-content: initial !important;
+}
+
+/*Font*/
+@font-face {
+font-family: TelefonicaHeadline-Light;
+src: url(../fonts/TelefonicaHeadline-Light.otf);
+}
+
+@font-face {
+font-family: TelefonicaText-Bold;
+src: url(../fonts/TelefonicaText-Bold.otf);
+}
+
+@font-face {
+font-family: TelefonicaText-Italic;
+src: url(../fonts/TelefonicaText-Italic.otf);
+}
+
+@font-face {
+font-family: TelefonicaText-Regular;
+src: url(../fonts/TelefonicaText-Regular.otf);
+}
+
+@font-face {
+font-family: TelefonicaScript;
+src: url(../fonts/TelefonicaScript_0.otf);
+}
+
+.font-light {
+  font-family: TelefonicaHeadline-Light;
+}
+
+.font-bold {
+  font-family: TelefonicaText-Bold;
+}
+
+.font-italic {
+  font-family: TelefonicaText-Italic;
+}
+
+.font-regular {
+  font-family: TelefonicaHeadline-Regular;
+}
+
+.font-script {
+	font-family: TelefonicaScript;
+}
